@@ -83,7 +83,7 @@ app.get("/api/v1/user/logout", auth, (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.send("hello run for God");
 });
 
 const PORT = process.env.PORT || 5000;
