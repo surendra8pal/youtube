@@ -4,15 +4,14 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const config = require("./config/key");
 
-mongoose.connect(config.mongoURI, {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection.once("open", () => {
-  console.log("database successfully connected...");
-});
-mongoose.Promise = global.Promise;
+mongoose
+  .connect(config.mongoURI, {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB Connected..."))
+  .catch((err) => console.log(err));
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
